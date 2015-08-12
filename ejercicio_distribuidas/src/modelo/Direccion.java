@@ -72,6 +72,11 @@ public class Direccion {
 		this.depto = depto;
 	}
 	
+	//Generador de DireccionView
+	public DireccionView getView(){
+		DireccionView direccionView = new DireccionView(calle, numero, cp, localidad, piso, depto);
+		return direccionView;
+	}
 	
 
 }

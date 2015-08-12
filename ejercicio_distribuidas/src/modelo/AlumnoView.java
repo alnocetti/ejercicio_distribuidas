@@ -1,6 +1,6 @@
 package modelo;
 
-public class Alumno {
+public class AlumnoView {
 	
 	//atributos
 	private int legajo;
@@ -9,7 +9,7 @@ public class Alumno {
 	
 	
 	//constructor
-	public Alumno(int legajo, String nombre, String estado) {
+	public AlumnoView(int legajo, String nombre, String estado) {
 		super();
 		this.legajo = legajo;
 		this.nombre = nombre;
@@ -41,10 +41,6 @@ public class Alumno {
 		this.estado = estado;
 	}
 	
-	//Generador de AlumnoView
-	public AlumnoView getView(){
-		AlumnoView alumnoView = new AlumnoView(legajo, nombre, estado);
-		return alumnoView;
-	}
+
 
 }

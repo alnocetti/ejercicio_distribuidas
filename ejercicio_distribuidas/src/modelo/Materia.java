@@ -30,7 +30,10 @@ public class Materia {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	
-	
-	
+
+	//Generador de MateriaView
+	public MateriaView getView(){
+		MateriaView materiaView = new MateriaView(numero, nombre);
+		return materiaView;
+	}
 }

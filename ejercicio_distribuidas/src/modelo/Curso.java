@@ -21,6 +21,15 @@ public class Curso {
 		this.alumnos = alumnos;
 		this.cantidadMaxima = cantidadMaxima;
 	}
+	
+	//nuevo constructos, para el metodo del sistema de nuevo curso
+	public Curso(Materia materia, Profesor profesor, int cantidadMaxima){
+		super();
+		this.materia = materia;
+		this.profesor = profesor;
+		this.alumnos = null;
+		this.cantidadMaxima = cantidadMaxima;
+	}
 
 	public int getNumeroCurso() {
 		return numeroCurso;
@@ -64,5 +73,44 @@ public class Curso {
 		this.cantidadMaxima = cantidadMaxima;
 	}
 	
+	//Generador de cursoView
+	public CursoView getView(){
+		Vector<AlumnoView> alumnosView = new Vector<AlumnoView>();
+		for (Alumno alumno : alumnos) {
+			alumnosView.add(alumno.getView());
+		}
+		CursoView cursoView = new CursoView(numeroCurso, materia.getView(), profesor.getView(),alumnosView, cantidadMaxima);
+		return cursoView;
+	}
+	
+	//Agregar alumno a curso
+	public void agregarAlumno (Alumno alumno){
+		for (Alumno a : alumnos) {
+			if (a.getLegajo() == alumno.getLegajo()){
+				return;
+			}else{
+				alumnos.add(a);
+			}
+		}
+		return;
+	}
+	
+	//Eliminar alumno de curso
+	public void eliminarAlumno (Alumno alumno){
+		for (Alumno a : alumnos) {
+			if (a.getLegajo() == alumno.getLegajo()){
+				alumnos.remove(a);
+				return;
+			}
+		}
+		return;
+	}
+	
+	//Reasignar profesor al curso
+	public void reasignarProfesor(Profesor profesor){
+		if (this.profesor.getNumeroLegajo() != profesor.getNumeroLegajo())
+			this.profesor = profesor;
+		return;
+	}
 	
 }

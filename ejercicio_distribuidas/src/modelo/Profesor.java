@@ -43,6 +43,37 @@ public class Profesor {
 		this.materias = materias;
 	}
 	
+	//Generador de ProfesorView
+	public ProfesorView getView(){
+		Vector<MateriaView>materiasView = new Vector<MateriaView>();
+		for (Materia materia : materias) {
+			materiasView.add(materia.getView());
+		}
+		ProfesorView profesorView = new ProfesorView(numeroLegajo, direccion.getView(), materiasView);
+		return profesorView;
+	}
+	
+	//Agregar materia al vector de materias
+	public void agregarMateria(Materia materia){
+		for (Materia m : materias) {
+			if(m.getNumero().equals(materia.getNumero())){
+				return;
+			}else{
+				materias.add(m);
+			}
+		}
+		return;
+	}
+	//Eliminar materia del vector de materias
+	public void eliminarMateria(Materia materia){
+		for (Materia m : materias) {
+			if(m.getNumero().equals(materia.getNumero())){
+				materias.remove(m);
+				return;
+			}
+		}
+		return;
+	}
 	
 	
 }
